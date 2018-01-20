@@ -1,0 +1,54 @@
+set protocols bgp group overlay001 neighbor 100.0.0.172
+set protocols bgp group overlay001 neighbor 100.0.0.175
+set protocols bgp group overlay001 neighbor 100.0.0.188
+set protocols bgp group overlay001 neighbor 100.0.0.189
+set forwarding-options vxlan-routing interface-num 8192
+set forwarding-options vxlan-routing next-hop 16384
+set protocols bgp group overlay001 type internal 
+set protocols bgp group overlay001 local-address 100.0.0.174 
+set protocols bgp group overlay001 family evpn signaling 
+set protocols evpn encapsulation vxlan 
+set protocols evpn extended-vni-list all
+set protocols evpn default-gateway no-gateway-community
+set switch-options route-distinguisher 100.0.0.174:1 
+set switch-options vrf-target target:1111:11 
+set switch-options vtep-source-interface lo0.0
+set interfaces xe-0/0/3:1 unit 0 description to-test-equipment family ethernet-switching interface-mode trunk
+set interfaces xe-0/0/3:1 unit 0 family ethernet-switching vlan members v100
+set interfaces xe-0/0/3:2 unit 0 description to-test-equipment family ethernet-switching interface-mode trunk
+set interfaces xe-0/0/3:2 unit 0 family ethernet-switching vlan members v200
+set interfaces irb unit 100 family inet address 10.10.10.1/16 virtual-gateway-address 10.10.10.254
+set interfaces irb unit 200 family inet address 10.20.20.1/16 virtual-gateway-address 10.20.20.254
+set interfaces lo0 unit 1 family inet address 10.2.3.74/32 primary 
+set interfaces lo0 unit 2 family inet address 10.2.3.174/32 primary
+set routing-instances vrf_vlan100 instance-type vrf 
+set routing-instances vrf_vlan100 interface irb.100 
+set routing-instances vrf_vlan100 interface lo0.1 
+set routing-instances vrf_vlan100 route-distinguisher 10.2.3.11:2 
+set routing-instances vrf_vlan200 instance-type vrf 
+set routing-instances vrf_vlan200 interface irb.200 
+set routing-instances vrf_vlan200 interface lo0.2 
+set routing-instances vrf_vlan200 route-distinguisher 10.2.3.11:3 
+set vlans v100 vlan-id 100 
+set vlans v100 l3-interface irb.100 
+set vlans v100 vxlan vni 100 
+set vlans v200 vlan-id 200
+set vlans v200 l3-interface irb.200 
+set vlans v200 vxlan vni 200 
+set policy-options policy-statement export-inet1 term 1 from interface irb.100 
+set policy-options policy-statement export-inet1 term 1 then community add com200 
+set policy-options policy-statement export-inet1 term 1 then accept 
+set policy-options policy-statement export-inet2 term 1 from interface irb.200 
+set policy-options policy-statement export-inet2 term 1 then community add com100 
+set policy-options policy-statement export-inet2 term 1 then accept 
+set policy-options policy-statement import-inet term 1 from community com100 
+set policy-options policy-statement import-inet term 1 from community com200 
+set policy-options policy-statement import-inet term 1 then accept 
+set policy-options community com100 members target:1:100 
+set policy-options community com200 members target:1:200
+set routing-instances vrf_vlan100 vrf-import import-inet 
+set routing-instances vrf_vlan100 vrf-export export-inet1 
+set routing-instances vrf_vlan100 routing-options auto-export family inet unicast 
+set routing-instances vrf_vlan200 vrf-import import-inet 
+set routing-instances vrf_vlan200 vrf-export export-inet2 
+set routing-instances vrf_vlan200 routing-options auto-export family inet unicast

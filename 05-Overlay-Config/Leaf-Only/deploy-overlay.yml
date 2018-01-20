@@ -1,0 +1,24 @@
+# Copyright 2017, Juniper Networks Pvt Ltd.
+# All rights reserved.
+# Deploys IP Addresses to the topology
+# command example: ansible-playbook -i all.inv deploy-overlay.yml
+# Successfully ran on ansible version: ansible 2.4.2.0
+---
+- name: Deploys overlay to the leaf devices
+  hosts: junos-leaf
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+  tasks:
+    - name: push overlay config to devices
+      junos_install_config:
+        host: "{{ inventory_hostname }}"
+        replace: no
+        overwrite: no
+        confirm: 5
+        file: "configsoverlay/{{ inventory_hostname }}-ovr-config.set"
+    - name: Confirm the commit
+      junos_commit:
+        host: "{{ inventory_hostname }}"
+        comment: "commit confirmed"
