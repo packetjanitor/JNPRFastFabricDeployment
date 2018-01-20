@@ -1,0 +1,24 @@
+# Copyright 2017, Juniper Networks Pvt Ltd.
+# All rights reserved.
+# Deploys IP Addresses to the topology
+# command example: ansible-playbook -i all.inv deploy-address.yml
+# Successfully ran on ansible version: ansible 2.4.2.0
+---
+- name: Deploys ip addresses to the devices
+  hosts: junos-ssh
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+  tasks:
+    - name: push ip addresses to devices
+      junos_install_config:
+        host: "{{ inventory_hostname }}"
+        replace: no
+        overwrite: no
+        confirm: 5
+        file: "ipconfigs/{{ inventory_hostname }}-ip-int-config.set"
+    - name: Confirm the commit
+      junos_commit:
+        host: "{{ inventory_hostname }}"
+        comment: "commit confirmed"
