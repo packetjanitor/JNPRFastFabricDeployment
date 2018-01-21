@@ -1,5 +1,7 @@
 Standard Ubuntu 16.04.03 Install. Install OpenSSH server at the end. Everything else can be default. 
 
+https://youtu.be/dnLmX5g8ysI 
+
 Hint: DO NOT do this on the VPN.
 
 Update the virtual machine. 
