@@ -1,4 +1,4 @@
-Standard Install. Install OpenSSH server. Everything else can be default. 
+Standard Ubuntu 16.04 Install. Install OpenSSH server. Everything else can be default. 
 
 We are using ansible. Ansible uses python. We need to install python. 
 
