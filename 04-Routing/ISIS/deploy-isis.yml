@@ -17,7 +17,7 @@
         replace: no
         overwrite: no
         confirm: 5
-        file: "configsisis/{{ inventory_hostname }}-isis-int-config.set"
+        file: "configisis/{{ inventory_hostname }}-isis-int-config.set"
     - name: Confirm the commit
       junos_commit:
         host: "{{ inventory_hostname }}"
