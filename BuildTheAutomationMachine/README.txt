@@ -1,6 +1,8 @@
 Standard Ubuntu 16.04.03 Install. Install OpenSSH server at the end. Everything else can be default. 
 
-Update the virtual machine.
+Hint: DO NOT do this on the VPN.
+
+Update the virtual machine. 
 ~sudo su~
 ~apt-get update && apt-get upgrade -y~
 
@@ -8,14 +10,16 @@ We are using ansible. Ansible uses python. We need to install python.
 
 ~sudo apt-get install python-pip python-dev libxml2-dev libxslt-dev libssl-dev libffi-dev -y~
 
-Pip is temperamental. If you don’t upgrade it and need help from the community they will tell you to upgrade first. Do the double upgrade just to cover your bases.
+Update PIP for python.
 ~sudo -H pip install --upgrade pip~
 
-Here are the Juniper libraries we need to make the 
+Here are the Juniper libraries we need to make ansible work. Note we use pip2 to make sure they don't default into python3. 
 ~sudo -H pip2 install junos-eznc~
 ~sudo -H pip2 install jxmlease~
 
-We want the 2.4 version of Ansible. Mostly because if you have to fix it there is a lot more logging and it has more granularity in error messages. Add the following line to /etc/apt/sources.list:
+We want the 2.4 version of Ansible. Mostly because if you have to fix it there is a lot more logging and it has more granularity in error messages. I also don't want every development release for every project so we are a little specific right here.
+
+~sudo vi /etc/apt/sources.list~
 ~deb http://ppa.launchpad.net/ansible/ansible/ubuntu xenial main~
 
 Enter the following 
