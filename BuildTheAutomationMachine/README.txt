@@ -47,6 +47,7 @@ Accept the defaults.
 
 Enter the command:
 ~cat /home/junivator/.ssh/id_rsa.pub~
+ssh-rsa ThisIsTheKeyYouJustMadeBecauseYouAreAwesome junivator@automation
 
 SSH to all of your hosts for the last time and input the key or use the python script in this directory. 
 
