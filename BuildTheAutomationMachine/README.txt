@@ -62,4 +62,4 @@ SSH to all of your hosts for the last time and input the key or use the python s
 
 ~set system login user jnpradmin uid 2005 class super-user authentication ssh-rsa "ssh-rsa ThisIsTheKeyYouJustMadeBecauseYouAreAwesome jnpradmin@AutoMach"~ 
 
-Login to each networking device. You’ll note there’s no password entry now the the key is complete. 
+Login to each networking device and accept the key from the networking device into your known_hosts file. You’ll note there’s no password entry now that the key is complete. 
