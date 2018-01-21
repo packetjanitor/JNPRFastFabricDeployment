@@ -41,6 +41,11 @@ user@host$ more /etc/hosts
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 
+Clone all of these automation files into a directory. 
+~git clone https://github.com/packetjanitor/JNPRFastFabricDeployment.git~
+
+I will cover the ansible configuration tools in their repspective directories a little later. However, this will get you the password deployment tool that's in this directory. You'll thank me later if you have alot of devices.
+
 Enter the command from the "user@host$", if you do it as root (sudo) the key will be for root and not the user:
 ~ssh-keygen~ 
 Accept the defaults.
@@ -53,8 +58,4 @@ SSH to all of your hosts for the last time and input the key or use the python s
 
 ~set system login user jnpradmin uid 2005 class super-user authentication ssh-rsa "ssh-rsa ThisIsTheKeyYouJustMadeBecauseYouAreAwesome jnpradmin@AutoMach"~ 
 
-Login to each networking device. You’ll note there’s no password entry now the the key is complete.
-
-~git clone https://github.com/packetjanitor/JNPRFastFabricDeployment.git~
-
-I will cover the ansible configuration tools in their repspective directories a little later. 
+Login to each networking device. You’ll note there’s no password entry now the the key is complete. 
