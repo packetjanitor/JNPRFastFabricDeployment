@@ -1,0 +1,60 @@
+# Copyright 2017, Juniper Networks Pvt Ltd.
+# All rights reserved.
+# Deploys ISIS to the topology
+# command example: ansible-playbook -i all.inv deploy-isis.yml
+# Successfully ran on ansible version: ansible 2.4.2.0
+---
+- name: Deploy ISIS to the topology
+  hosts: junos-ssh
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+  tasks:
+    - name: push ISO configuration to interfaces
+      junos_install_config:
+        host: "{{ inventory_hostname }}"
+        replace: no
+        overwrite: no
+        confirm: 5
+        file: "configsisis/{{ inventory_hostname }}-isis-int-config.set"
+    - name: Confirm the commit
+      junos_commit:
+        host: "{{ inventory_hostname }}"
+        comment: "commit confirmed"
+- name: Deploy ISIS to the Spine devices
+  hosts: junos-spine
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+  tasks:
+    - name: Deploy ISIS to the spine
+      junos_install_config:
+        host: "{{ inventory_hostname }}"
+        replace: no
+        overwrite: no
+        confirm: 5
+        file: spine.set
+    - name: Confirm the commit
+      junos_commit:
+        host: "{{ inventory_hostname }}"
+        comment: "commit confirmed"
+- name: Deploy ISIS to the Leaf Devices
+  hosts: junos-leaf
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+  tasks:
+    - name: Deploy ISIS to the leaf
+      junos_install_config:
+        host: "{{ inventory_hostname }}"
+        replace: no
+        overwrite: no
+        confirm: 5
+        file: leaf.set
+    - name: Confirm the commit
+      junos_commit:
+        host: "{{ inventory_hostname }}"
+        comment: "commit confirmed"

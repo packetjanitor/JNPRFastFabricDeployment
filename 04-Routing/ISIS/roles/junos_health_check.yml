@@ -1,0 +1,18 @@
+---
+- name: Get Device Facts
+  hosts: junos-spine
+  roles:
+  - Juniper.junos
+  connection: local
+  gather_facts: no
+  tasks:
+  - name: Checking NETCONF connectivity
+    wait_for: host={{ inventory_hostname }} port=830 timeout=5
+
+  - name: Retrieve information from devices running Junos OS
+    junos_get_facts:
+        host: "{{ inventory_hostname }}"
+    register: junos
+
+  - name: version
+    debug: msg="{{ junos.facts.version }}"
