@@ -3,7 +3,7 @@
 # inspired by https://gist.github.com/jeffbrl/9485d1e0052151d69450
 # Runs any show command in Junos. Not elegant but highly effective. Does not works with pipe commands. 
 # command example: ansible-playbook -i all.inv -e '{ "CMD": "show route" }' junos_route_table_check-2.yml
-# Successfully ran on ansible version: ansible 2.4.2.0
+# Successfully ran on ansible version: ansible 2.4.2.0: ansible-galaxy list Juniper.junos,1.4.3
 ---
 - name: Get Device Facts
   hosts: junos-ssh
