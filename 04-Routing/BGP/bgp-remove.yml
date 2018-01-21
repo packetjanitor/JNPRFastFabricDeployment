@@ -2,7 +2,7 @@
 # All rights reserved.
 # Removes BGP from the underlay topology
 # command example: ansible-playbook -i all.inv bgp-remove.yml
-# Successfully ran on ansible version: ansible 2.4.2.0
+# Successfully ran on ansible version: ansible 2.4.2.0: ansible-galaxy list Juniper.junos,1.4.3
 ---
 - name: Remove BGP underlay from all devices
   hosts: junos-ssh
