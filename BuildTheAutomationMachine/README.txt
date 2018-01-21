@@ -8,14 +8,18 @@ Update the virtual machine.
 
 We are using ansible. Ansible uses python. We need to install python. 
 
-~sudo apt-get install python-pip python-dev libxml2-dev libxslt-dev libssl-dev libffi-dev -y~
+~apt-get install python-pip python-dev libxml2-dev libxslt-dev libssl-dev libffi-dev -y~
+~apt-get install libpython3-dev libpython3.5-dev python3-dev python3-pip python3-setuptools python3-wheel python3.5-dev -y~
 
-Update PIP for python.
+At the "user@host$" prompt, update both PIPs for python.
 ~sudo -H pip install --upgrade pip~
+~sudo -H pip3 install --upgrade pip~
 
-Here are the Juniper libraries we need to make ansible work. Note we use pip2 to make sure they don't default into python3. 
+Here are the Juniper libraries we need to make ansible work. Note we use pip2 to make sure they don't default into python3 and pip3 so that python3 is also updated. Some of these won't install and will say they are already "satisfied". However, the libraries and team that maintain them make necessary fixes closest to the error. So, it's entirely possible they could change something.
 ~sudo -H pip2 install junos-eznc~
 ~sudo -H pip2 install jxmlease~
+~sudo -H pip3 install junos-eznc~
+~sudo -H pip3 install jxmlease~
 
 We want the 2.4 version of Ansible. Mostly because if you have to fix it there is a lot more logging and it has more granularity in error messages. I also don't want every development release for every project so we are a little specific right here.
 
