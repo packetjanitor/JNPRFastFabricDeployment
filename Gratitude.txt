@@ -1,7 +1,7 @@
 So many people helped me with this...
 Sameer Sharma and Nancy Cohen kept rebuilding my lab after POC's would use it.
 Marty Smihula taught me about what Ansible could do by teaching me about what Salt Stack could do.
-Ben Griffin helped me get past the basics at a workshop. He probably still thinks I am super dense.
-Dusten Splan helped me get this project back on track.
+Ben Griffin helped me get past the basics of automation at the automation workshop. He probably still thinks I am super dense.
+Dusten Splan helped me get this project on a track to match our team goals.
 I completely ripped Sean Watson's template off although I simplified it beyond recognition.
 My whole team for answering the silly configuration questions (and there were plenty of them).
