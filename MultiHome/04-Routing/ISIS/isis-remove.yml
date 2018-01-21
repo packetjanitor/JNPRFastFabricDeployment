@@ -1,0 +1,42 @@
+# Copyright 2017, Juniper Networks Pvt Ltd.
+# All rights reserved.
+# Removes ISIS from the topology
+# command example: ansible-playbook -i all.inv isis-remove.yml
+# Successfully ran on ansible version: ansible 2.4.2.0
+---
+- name: Remove ISIS protocol from all devices
+  hosts: junos-mh-all
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+  tasks:
+    - name: Remove ISIS config
+      junos_install_config:
+        host: "{{ inventory_hostname }}"
+        replace: no
+        overwrite: no
+        confirm: 5
+        file: remove-isis.set
+    - name: Confirm the commit
+      junos_commit:
+        host: "{{ inventory_hostname }}"
+        comment: "commit confirmed"
+- name: Remove ISIS from the topology
+  hosts: junos-mh-all
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+  tasks:
+    - name: remove ISO configuration from interfaces
+      junos_install_config:
+        host: "{{ inventory_hostname }}"
+        replace: no
+        overwrite: no
+        confirm: 5
+        file: "removeisis/{{ inventory_hostname }}-isis-int-config.set"
+    - name: Confirm the commit
+      junos_commit:
+        host: "{{ inventory_hostname }}"
+        comment: "commit confirmed"

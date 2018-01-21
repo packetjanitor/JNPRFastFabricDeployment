@@ -1,0 +1,6 @@
+set routing-options router-id 100.0.0.189
+set routing-options autonomous-system 65534
+set interfaces et-0/0/0 unit 0 description to-spine-1 family inet address 100.0.0.42/31
+set interfaces et-0/0/1 unit 0 description to-spine-2 family inet address 100.0.0.44/31
+set interfaces xe-0/0/3:0 unit 0 description to-test-equipment family inet address 100.189.1.1/16
+set interfaces lo0 unit 0 family inet address 100.0.0.189/32 primary

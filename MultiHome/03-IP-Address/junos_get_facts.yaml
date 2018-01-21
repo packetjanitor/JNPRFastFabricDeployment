@@ -1,0 +1,15 @@
+---
+- name: Get facts
+  hosts: junos-ssh
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+  tasks:
+    - name: Get junos facts
+      junos_get_facts:
+        host: "{{ inventory_hostname }}"
+      register: junos
+    - name: Print facts
+      debug:
+        var: junos

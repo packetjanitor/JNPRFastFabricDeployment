@@ -1,0 +1,3 @@
+delete policy-options policy-statement load-balancing-policy then load-balance per-packet
+delete routing-options forwarding-table export load-balancing-policy
+delete protocols ospf

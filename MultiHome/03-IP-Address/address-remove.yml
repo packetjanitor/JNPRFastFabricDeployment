@@ -1,0 +1,42 @@
+# Copyright 2017, Juniper Networks Pvt Ltd.
+# All rights reserved.
+# Removes IP Addresses from the topology
+# command example: ansible-playbook -i all.inv address-remove.yml
+# Successfully ran on ansible version: ansible 2.4.2.0
+---
+- name: Remove IP Addresses to the topology
+  hosts: junos-mh-spine
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+  tasks:
+    - name: Remove IP Addresses to the spine
+      junos_install_config:
+        host: "{{ inventory_hostname }}"
+        replace: no
+        overwrite: no
+        confirm: 5
+        file: removeips/Remove-IP-Spine.set
+    - name: Confirm the commit
+      junos_commit:
+        host: "{{ inventory_hostname }}"
+        comment: "commit confirmed"
+- name: Commit
+  hosts: junos-mh-leaf
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+  tasks:
+    - name: Remove IP Addresses to the leaf
+      junos_install_config:
+        host: "{{ inventory_hostname }}"
+        replace: no
+        overwrite: no
+        confirm: 5
+        file: removeips/Remove-IP-Leaf.set
+    - name: Confirm the commit
+      junos_commit:
+        host: "{{ inventory_hostname }}"
+        comment: "commit confirmed"
