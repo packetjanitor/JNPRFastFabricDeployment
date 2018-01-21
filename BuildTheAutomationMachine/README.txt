@@ -1,4 +1,4 @@
-Standard Ubuntu 16.04 Install. Install OpenSSH server. Everything else can be default. 
+Standard Ubuntu 16.04.03 Install. Install OpenSSH server at the end. Everything else can be default. 
 
 Update the virtual machine.
 ~sudo su~
@@ -30,7 +30,7 @@ Good news Ansible’s updates servers are on the most current module. Bad news, 
 
 ~ansible-galaxy install Juniper.junos,1.4.3~   <— Case sensitive
 
-Update the /etc/hosts file with all of your clients in it. I leave the IPv6 information at the bottom.
+Update the /etc/hosts file with all of your networking devices to match your network. I leave the IPv6 information at the bottom.
 
 ~sudo vi etc/hosts~ 
 user@host$ more /etc/hosts
