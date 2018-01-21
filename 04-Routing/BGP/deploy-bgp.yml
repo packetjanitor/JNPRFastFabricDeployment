@@ -1,0 +1,42 @@
+# Copyright 2017, Juniper Networks Pvt Ltd.
+# All rights reserved.
+# Deploys BGP to the underlay topology
+# command example: ansible-playbook -i all.inv deploy-bgp.yml
+# Successfully ran on ansible version: ansible 2.4.2.0
+---
+- name: Deploy BGP to the underlay topology
+  hosts: junos-ssh
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+  tasks:
+    - name: push underlay neighbor configuration
+      junos_install_config:
+        host: "{{ inventory_hostname }}"
+        replace: no
+        overwrite: no
+        confirm: 5
+        file: "nbrconfigs/{{ inventory_hostname }}-bgp-nbr-config.set"
+    - name: Confirm the commit
+      junos_commit:
+        host: "{{ inventory_hostname }}"
+        comment: "commit confirmed"
+- name: Deploy BGP policy to all devices
+  hosts: junos-ssh
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+  tasks:
+    - name: Deploy BGP Policy to the underlay
+      junos_install_config:
+        host: "{{ inventory_hostname }}"
+        replace: no
+        overwrite: no
+        confirm: 5
+        file: policy.set
+    - name: Confirm the commit
+      junos_commit:
+        host: "{{ inventory_hostname }}"
+        comment: "commit confirmed"

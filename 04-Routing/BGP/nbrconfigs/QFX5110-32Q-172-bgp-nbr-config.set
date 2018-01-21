@@ -1,0 +1,4 @@
+set protocols bgp group underlay local-as 65172
+set protocols bgp group underlay neighbor 100.0.0.3 peer-as 65169 description to-spine-1
+set protocols bgp group underlay neighbor 100.0.0.5 peer-as 65170 description to-spine-2
+set protocols bgp group underlay neighbor 100.0.0.7 peer-as 65171 description to-spine-3
