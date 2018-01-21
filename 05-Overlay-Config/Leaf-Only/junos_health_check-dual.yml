@@ -2,7 +2,7 @@
 # All rights reserved.
 # Checks the health of the devices and verifies reachability
 # command example: ansible-playbook -i all.inv junos_health_check-dual.yml
-# Successfully ran on ansible version: ansible 2.4.2.0
+# Successfully ran on ansible version: ansible 2.4.2.0:: ansible-galaxy list Juniper.junos,1.4.3
 ---
 - name: Get Device Facts
   hosts: junos-spine
