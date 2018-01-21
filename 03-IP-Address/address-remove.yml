@@ -2,7 +2,7 @@
 # All rights reserved.
 # Removes IP Addresses from the topology
 # command example: ansible-playbook -i all.inv address-remove.yml
-# Successfully ran on ansible version: ansible 2.4.2.0
+# Successfully ran on ansible version: ansible 2.4.2.0: ansible-galaxy list Juniper.junos,1.4.3
 ---
 - name: Remove IP Addresses to the topology
   hosts: junos-spine
