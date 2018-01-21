@@ -2,7 +2,7 @@
 # All rights reserved.
 # Removes the overlay config
 # command example: ansible-playbook -i all.inv remove-overlay.yml
-# Successfully ran on ansible version: ansible 2.4.2.0
+# Successfully ran on ansible version: ansible 2.4.2.0: ansible-galaxy list Juniper.junos,1.4.3
 ---
 - name: Removes overlay configs from the devices
   hosts: junos-leaf
