@@ -40,7 +40,7 @@ Good news Ansible’s updates servers are on the most current module. Bad news, 
 
 Update the /etc/hosts file with all of your networking devices to match your network. I leave the IPv6 information at the bottom.
 
-~sudo vi etc/hosts~ 
+~sudo vi /etc/hosts~ 
 user@host$ more /etc/hosts
 127.0.0.1	localhost
 127.0.1.1	AutoMach
