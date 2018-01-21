@@ -1,5 +1,9 @@
 Standard Ubuntu 16.04 Install. Install OpenSSH server. Everything else can be default. 
 
+Update the virtual machine.
+~sudo su~
+~apt-get update && apt-get upgrade -y~
+
 We are using ansible. Ansible uses python. We need to install python. 
 
 ~sudo apt-get install python-pip python-dev libxml2-dev libxslt-dev libssl-dev libffi-dev -y~
