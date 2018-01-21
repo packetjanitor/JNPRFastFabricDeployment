@@ -2,7 +2,7 @@
 # All rights reserved.
 # Deploys BGP to the underlay topology
 # command example: ansible-playbook -i all.inv deploy-bgp.yml
-# Successfully ran on ansible version: ansible 2.4.2.0
+# Successfully ran on ansible version: ansible 2.4.2.0: ansible-galaxy list Juniper.junos,1.4.3
 ---
 - name: Deploy BGP to the underlay topology
   hosts: junos-ssh
