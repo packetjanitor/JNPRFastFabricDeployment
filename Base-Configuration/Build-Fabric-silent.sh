@@ -16,7 +16,7 @@ ansible-playbook -i 05-Overlay-Config/Leaf-Only/all.inv 05-Overlay-Config/Leaf-O
 sleep 3
 printf "Overlay deployed\n"
 sleep 3
-print "Letting the hardware catch up to the software world. ;)\n"
+printf "Letting the hardware form adjacencies and stabilize.\n"
 sleep 3
 secs=$((3 * 60))
 while [ $secs -gt 0 ]; do
