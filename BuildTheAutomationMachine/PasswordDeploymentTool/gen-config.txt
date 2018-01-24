@@ -1,3 +1,3 @@
 set system login user junivator uid 2006
 set system login user junivator class super-user
-set system login user junivator authentication ssh-rsa "ssh-rsa ThisIsTheAwesomePasswordSSHKeyGenMade junivator@AutoMach"
+set system login user junivator authentication ssh-rsa "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDL/Hi+hk25C5iXlUTI+mjHiRuCchwQEs01Ctn77y92KNStN+d0Q/d1dhavjwxE1ucfbKdmTTLUy7KV6EPoAyvgojHwX1m+/YGiApvslwrqmZow2Nju+MLYUYfrY5f1vZFLkT6XVL4Zl58OZExfQEwCf+BmUYls1JrjwUHtrN7b90Fxi02LFw7HWpPq5HMVL7CiLWUfIY/JDJbWMlq//9A7uaSAS7kw5Ou6MFQjB7sQ35PiwCu/QXNVMyA6VckTS22OsUa6I1iXywYqhLTWLoWJ7d1kYsAS/xsTKodkMHgqsFP0MsL6GKx0QH6/Tnsm8XYZ9hrQmn0zCnZNrfjxyhFF junivator@Automation"
