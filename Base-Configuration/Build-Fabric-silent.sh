@@ -25,5 +25,5 @@ while [ $secs -gt 0 ]; do
    sleep 1
    : $((secs--))
 done
-printf "The Fabric is ready.\n"
 sleep 3
+printf "\n\nThe Fabric is ready.\n"
