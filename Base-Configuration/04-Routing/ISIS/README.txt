@@ -14,9 +14,8 @@ roles - This directory is where Juniper.junos lives and provides the Ansible int
 leaf.set - This is command line automation. It configures ISIS on the Leaf devices.
 spine.set - This is command line automation. It configures ISIS on the Spine devices.
 remove-isis.set - This is command line automation. This removes ISIS from all devices.
-configisis -
-removeisis -
-
+configisis - This is command line automation. This directory houses the configuration files for each device.
+removeisis - This is command line automation. This directory houses the files that remove the configuration for each device.
 
 You can learn more about the Juniper configuration at:
 https://www.juniper.net/us/en/training/jnbooks/day-one/fundamentals-series/routing-internet-protocol/
