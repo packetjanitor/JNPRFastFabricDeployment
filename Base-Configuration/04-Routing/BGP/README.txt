@@ -1,7 +1,7 @@
 To deploy BGP: 
-junivator@Automation:~/JNPRFastFabricDeployment/Base-Configuration$ ansible-playbook -i 04-Routing/ISIS/all.inv 04-Routing/ISIS/deploy-ospf.yml
+junivator@Automation:~/JNPRFastFabricDeployment/Base-Configuration$ ansible-playbook -i 04-Routing/bgp/all.inv 04-Routing/bgp/deploy-bgp.yml
 To remove BGP: 
-junivator@Automation:~/JNPRFastFabricDeployment/Base-Configuration$ ansible-playbook -i 04-Routing/ISIS/all.inv 04-Routing/ISIS/ospf-remove.yml
+junivator@Automation:~/JNPRFastFabricDeployment/Base-Configuration$ ansible-playbook -i 04-Routing/bgp/all.inv 04-Routing/bgp/bgp-remove.yml
 
 Files and directories:
 all.inv - This is the inventory file for the devices. I use a full inventory file to make it simple rather than making small groups and then calling each of them.       
