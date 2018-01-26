@@ -4,7 +4,7 @@ To remove ospf:
 junivator@Automation:~/JNPRFastFabricDeployment/Base-Configuration$ ansible-playbook -i 04-Routing/OSPF/all.inv 04-Routing/OSPF/ospf-remove.yml
 
 Files and directories:
-all.inv - This is the inventory file for the devices. I use a full inventory file to make it simple rather than making small groups and then calling each of them.       
+all.inv - This is the inventory file for the devices. 
 junos_health_check-dual.yml - This health check verifies netconf connectivity and displays the software version of the device.
 junos_route_table_check-2.yml - This YAML file can be used to verify the routing table from Ansible.
 ansible.cfg - Ansible has a few parameters that are most easily set in each directory to avoid path conflicts.
