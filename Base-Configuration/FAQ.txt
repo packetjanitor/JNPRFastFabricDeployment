@@ -1,0 +1,4 @@
+Frequently Asked Questions
+Q: Why does it take 3 minutes to bring up the fabric?
+A: In the configuration example, there are some default values that we change and in doing so the PFE must be rebooted. These values allow me to scale up the test clients quite a bit. You can read more here. https://www.juniper.net/documentation/en_US/junos/topics/reference/configuration-statement/next-hop-edit-forwarding-options-vxlan-routing.html
+
