@@ -1,6 +1,6 @@
 To deploy ISIS: 
 junivator@Automation:~/JNPRFastFabricDeployment/Base-Configuration$ ansible-playbook -i 04-Routing/ISIS/all.inv 04-Routing/ISIS/deploy-ospf.yml
-To remove ospf: 
+To remove ISIS: 
 junivator@Automation:~/JNPRFastFabricDeployment/Base-Configuration$ ansible-playbook -i 04-Routing/ISIS/all.inv 04-Routing/ISIS/ospf-remove.yml
 
 Files and directories:
