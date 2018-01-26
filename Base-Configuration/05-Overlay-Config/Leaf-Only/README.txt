@@ -2,8 +2,7 @@ To deploy the overlay:
 junivator@Automation:~/JNPRFastFabricDeployment/Base-Configuration$ ansible-playbook -i 05-Overlay-Config/Leaf-Only/all.inv 05-Overlay-Config/Leaf-Only/deploy-overlay.yml
 
 To remove the overlay: 
-junivator@Automation:~/JNPRFastFabricDeployment/Base-Configuration$ ansible-playbook -i 05-Overlay-Config/Leaf-Only/all.inv 05-Overlay-Config/Leaf-Only/overlay
--remove.yml
+junivator@Automation:~/JNPRFastFabricDeployment/Base-Configuration$ ansible-playbook -i 05-Overlay-Config/Leaf-Only/all.inv 05-Overlay-Config/Leaf-Only/overlay-remove.yml
 
 Files and directories:
 all.inv - This is the inventory file for the devices. I use a full inventory file to make it simple rather than making small groups and then calling each of them.       
