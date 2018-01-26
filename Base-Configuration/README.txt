@@ -8,7 +8,7 @@ I built the other topologies but they are in other sections that I will add as I
 
 I used the commands right on the bottom of that webpage with the exception of the multi-home/LACP commands. I was super focused on load-balancing and failover for this part.
 
-So the odd numbers (3 spines/5 leafs) reflect my choice not to deploy multi-homing in the first round.
+So the odd numbers (3 spines/5 leafs) reflect my choice not to deploy multi-homing in the first round. I will use one of the spine devices to become an LACP attached environment for the multihomed topology. 
 
 To build our fabric using OSPF from the automation using the command line at the Base-Configuration directory level:
 
