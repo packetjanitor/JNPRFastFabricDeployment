@@ -1,5 +1,4 @@
-delete vlans v100
-delete vlans v200
+delete vlans
 delete switch-options
 delete routing-instances
 delete policy-options
