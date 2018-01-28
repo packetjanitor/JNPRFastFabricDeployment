@@ -45,4 +45,6 @@ For BGP
 
 After the overlay is up, you can add or remove routing protocols at any time to assist in the evaluation of operational and functional requirements.
 
+If in the course of your learning, you do something to the network or make a few changes and get the network into a bad state. You can go to the uh-oh directory and follow the directions there to help rebuild the network.
+
 
