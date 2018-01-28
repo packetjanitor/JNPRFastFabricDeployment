@@ -5,3 +5,6 @@ Ben Griffin helped me get past the basics of automation at the automation worksh
 Dusten Splan helped me get this project on a track to match our team goals.
 I completely ripped Sean Watson's template off although I simplified it beyond recognition.
 My whole team for answering the silly configuration questions (and there were plenty of them).
+Bryan Welch for sitting through the demo when it was much rougher than it is now. Not once but twice.
+Ajay Tank for challenging me to make this easy enough that a person with very limited knowledge could understand it in a week.
+Denis Turcote for helping me see the value of prerequisites and being specific in my asks for knowledge transfer.
