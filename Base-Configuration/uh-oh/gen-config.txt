@@ -1,5 +1,9 @@
-delete interfaces 
-delete protocols 
-delete routing-policy
+delete vlans v100
+delete vlans v200
+delete switch-options
+delete routing-instances
+delete policy-options
+delete protocols
+delete routing-options
 delete forwarding-options
-
+delete interfaces
