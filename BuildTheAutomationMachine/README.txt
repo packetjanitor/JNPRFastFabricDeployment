@@ -23,7 +23,7 @@ Here are the Juniper libraries we need to make ansible work. Note we use pip2 to
 ~sudo -H pip3 install junos-eznc~
 ~sudo -H pip3 install jxmlease~
 
-We want the 2.4 version of Ansible. Mostly because if you have to fix it there is a lot more logging and it has more granularity in error messages. I also don't want every development release for every project so we are a little specific right here.
+We want the 2.4 version of Ansible. Mostly because if you have to fix it there is a lot more logging and it has more granularity in error messages. I also don't want every development release for every project so we are a little specific right here. In the video, I just took the default version of Ansible. I corrected this install to ensure we stay on the 2.4.2.0 version.
 
 ~sudo vi /etc/apt/sources.list~
 ~deb http://ppa.launchpad.net/ansible/ansible/ubuntu xenial main~
@@ -33,7 +33,7 @@ Enter the following
 
 ~sudo apt-get update~
 
-~sudo apt-get install ansible -y~
+~sudo apt-get install ansible=2.4.2.0-1ppa~xenial -y~
 
 Now we need to install our ansible module.
 Good news Ansible’s updates servers are on the most current module. Bad news, all of the automation I wrote is on the old version. I am working to upgrade to the new ansible verbiage and model.
