@@ -16,3 +16,5 @@ If the spine has already been de-provisioned, you'll get the following message "
 
 You can use following command to get to the junos-leaf devices by skipping around in the inventory file. 
 ~ansible-playbook -i all.inv --limit "junos-leaf" uh-oh.yml~
+
+Since we are skipping over the first entries, ansible will report it can't find the hosts but then do the work, this is mostly because I didn't build the file with children and some other options.
