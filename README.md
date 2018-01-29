@@ -1,7 +1,7 @@
 # JNPR Fast Fabric Deployment
 My bosses boss was super excited about some additions to an existing technology that ended up getting delayed. So, there I am: A guy with a gear and time over the holidays since my wife was working.
 
-I orignally built this lab in python with DAY ONE:JUNOS PyEZCOOKBOOK as guidance but it was complicated and exhausting and I didn't know how I would ever hand it off. The reason you do something like this is so you can give it away.
+I orignally built this lab in python with DAY ONE:JUNOS PyEZ COOKBOOK as guidance but it was complicated and exhausting and I didn't know how I would ever hand it off. The reason you do something like this is so you can give it away.
 
 I decided to build it with Ansible to resolve two questions. One... How hard is it to automate a basic fabric from Juniper? Two... What the implications are of running different protocols in the underlay?
 
