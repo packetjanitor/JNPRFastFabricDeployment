@@ -14,7 +14,7 @@ printf "OSPF Routing Protocol installed.\n"
 sleep 3
 ansible-playbook -i 05-Overlay-Config/Leaf-Only/all.inv 05-Overlay-Config/Leaf-Only/deploy-overlay.yml > /dev/null
 sleep 3
-printf "Overlay deployedi.\n"
+printf "Overlay deployed.\n"
 sleep 3
 printf "Letting the hardware form adjacencies and stabilize.\n"
 sleep 3
