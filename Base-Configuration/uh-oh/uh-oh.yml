@@ -5,7 +5,7 @@
 # Successfully ran on ansible version: ansible 2.4.2.0: ansible-galaxy list Juniper.junos,1.4.3
 ---
 - name: Remove all configuration from all devices
-  hosts: junos-ssh
+  hosts: junos-spine
   connection: local
   gather_facts: no
   roles:
@@ -17,7 +17,25 @@
         replace: no
         overwrite: no
         confirm: 5
-        file: remove-everything.set
+        file: remove-everything-spine.set
+    - name: Confirm the commit
+      junos_commit:
+        host: "{{ inventory_hostname }}"
+        comment: "commit confirmed"
+- name: Remove all configuration from all devices
+  hosts: junos-leaf
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+  tasks:
+    - name: Remove all configuration
+      junos_install_config:
+        host: "{{ inventory_hostname }}"
+        replace: no
+        overwrite: no
+        confirm: 5
+        file: remove-everything-leaf.set
     - name: Confirm the commit
       junos_commit:
         host: "{{ inventory_hostname }}"
