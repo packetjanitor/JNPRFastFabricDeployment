@@ -1,6 +1,6 @@
 ---
  - name: Check ospf details.
-   hosts: junos-ssh
+   hosts: QFX5110-32Q-189
    connection: local
    gather_facts: no
    
@@ -11,7 +11,7 @@
       display: 'xml'
       commands:
        - show ospf neighbor "{{ item.neighbor }}"
-      waitfor:
+      wait_for:
        - "result[0]['rpc-reply']['ospf-neighbor-information']['ospf-neighbor']['ospf-neighbor-state'] eq 'Full'"
       retries: 3
       interval: 3
@@ -20,15 +20,15 @@
      when: ospf_neighbors is defined
 
 
-#   - name: Check if junos devices learned some routes with OSPF
-#     junos_command:
-#      display: 'xml'
-#      commands:
-#       - show route protocol ospf table inet.0 terse"{{ item.neighbor }}"
-#      waitfor:
-#       - "result[0]['rpc-reply']['route-information']['destination-count'] gt '30'"
-#      retries: 3
-#      interval: 3
-#     with_items:
-#     - "{{ ospf_neighbors }}"
-#     when: ospf_neighbors is defined
+   - name: Check if junos devices learned some routes with OSPF
+     junos_command:
+      display: 'xml'
+      commands:
+       - show route protocol ospf table inet.0 terse "{{ item.neighbor }}"
+      wait_for:
+       - "result[0]['rpc-reply']['route-information']['route-table']['rt']['rt-entry']['protocol-name'] eq OSPF"
+      retries: 3
+      interval: 3
+     with_items:
+     - "{{ ospf_neighbors }}"
+     when: ospf_neighbors is defined
