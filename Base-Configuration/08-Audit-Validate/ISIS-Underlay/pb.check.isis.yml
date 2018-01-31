@@ -1,34 +1,46 @@
 ---
- - name: Check ospf details.
+ - name: Check isis details.
    hosts: junos-ssh
    connection: local
    gather_facts: no
    
    tasks:
             
-   - name: Check if ospf adjacencies are formed and full.
+ #  - name: Check if ISIS adjacencies are formed and up.
+ #    junos_command:
+ #     display: 'xml'
+ #     commands:
+ #      - show isis adjacency "{{ isis_system_id }}"
+ #     wait_for:
+ #      - "result[0]['rpc-reply']['isis-adjacency-information']['isis-adjacency']['adjacency-state'] eq 'Up'"
+ #     retries: 3
+ #     interval: 3
+ #    with_items:
+ #    - "{{ isis_system_id }}"
+ #    when: isis_system_id is defined
+
+   - name: Check if junos devices have learned the upstream loopback addresses via ISIS
      junos_command:
       display: 'xml'
       commands:
-       - show isis adjacency "{{ item.neighbor }}"
-      waitfor:
-       - "result[0]['rpc-reply']['ospf-neighbor-information']['ospf-neighbor']['ospf-neighbor-state'] eq 'Full'"
+       - show route protocol isis table inet.0 terse "{{ item.neighbor }}"
+      wait_for:
+       - "result[0]['rpc-reply']['route-information']['route-table']['rt']['rt-entry']['protocol-name'] eq IS-IS"
       retries: 3
       interval: 3
      with_items:
      - "{{ ospf_neighbors }}"
      when: ospf_neighbors is defined
 
-
-#   - name: Check if junos devices learned some routes with OSPF
-#     junos_command:
-#      display: 'xml'
-#      commands:
-#       - show route protocol ospf table inet.0 terse"{{ item.neighbor }}"
-#      waitfor:
-#       - "result[0]['rpc-reply']['route-information']['destination-count'] gt '30'"
-#      retries: 3
-#      interval: 3
-#     with_items:
-#     - "{{ ospf_neighbors }}"
-#     when: ospf_neighbors is defined
+   - name: Check if junos devices have learned all of the EVPN/VXLAN endpoint addresses via ISIS
+     junos_command:
+      display: 'xml'
+      commands:
+       - show route protocol isis table inet.0 terse "{{ item.neighbor }}"
+      wait_for:
+       - "result[0]['rpc-reply']['route-information']['route-table']['rt']['rt-entry']['protocol-name'] eq IS-IS"
+      retries: 3
+      interval: 3
+     with_items:
+     - "{{ bgp_neighbors }}"
+     when: bgp_neighbors is defined
