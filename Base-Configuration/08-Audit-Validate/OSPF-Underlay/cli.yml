@@ -1,0 +1,7 @@
+---
+cli:
+    - "show chassis hardware"
+    - "show version"
+    - "show interfaces terse"
+    - "show configuration"
+    - "show configuration | display set"

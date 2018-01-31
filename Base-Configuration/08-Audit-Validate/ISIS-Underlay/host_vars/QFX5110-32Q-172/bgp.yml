@@ -1,0 +1,6 @@
+--- 
+bgp_neighbors:
+   - neighbor: 100.0.0.174
+   - neighbor: 100.0.0.175
+   - neighbor: 100.0.0.188
+   - neighbor: 100.0.0.189

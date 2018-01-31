@@ -1,0 +1,22 @@
+
+Hardware inventory:
+Item             Version  Part number  Serial number     Description
+Chassis                                WT3717190090      QFX5110-32Q
+Pseudo CB 0     
+Routing Engine 0          BUILTIN      BUILTIN           RE-QFX5110-32Q
+FPC 0            REV 05   650-077245   WT3717190090      QFX5110-32Q
+  CPU                     BUILTIN      BUILTIN           FPC CPU
+  PIC 0                   BUILTIN      BUILTIN           32x 40G-QSFP
+    Xcvr 0       REV 01   740-032986   QA500033          QSFP+-40G-SR4
+    Xcvr 1       REV 01   740-032986   QA500040          QSFP+-40G-SR4
+    Xcvr 2       REV 01   740-032986   QB440139          QSFP+-40G-SR4
+    Xcvr 3       REV 01   740-032986   QB131132          QSFP+-40G-SR4
+    Xcvr 4       REV 01   740-046565   QF2408AL          QSFP+-40G-SR4
+    Xcvr 5       REV 01   740-032986   QB440298          QSFP+-40G-SR4
+Power Supply 0   REV 04   740-041741   1GA27160306       JPSU-650W-AC-AFO
+Power Supply 1   REV 04   740-041741   1GA27160321       JPSU-650W-AC-AFO
+Fan Tray 0                                               fan-ctrl-2 0, Front to Back Airflow - AFO
+Fan Tray 1                                               fan-ctrl-2 1, Front to Back Airflow - AFO
+Fan Tray 2                                               fan-ctrl-2 2, Front to Back Airflow - AFO
+Fan Tray 3                                               fan-ctrl-2 3, Front to Back Airflow - AFO
+Fan Tray 4                                               fan-ctrl-2 4, Front to Back Airflow - AFO

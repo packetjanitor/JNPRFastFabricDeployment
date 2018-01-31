@@ -1,0 +1,34 @@
+---
+ - name: Check ospf details.
+   hosts: junos-ssh
+   connection: local
+   gather_facts: no
+   
+   tasks:
+            
+   - name: Check if ospf adjacencies are formed and full.
+     junos_command:
+      display: 'xml'
+      commands:
+       - show isis adjacency "{{ item.neighbor }}"
+      waitfor:
+       - "result[0]['rpc-reply']['ospf-neighbor-information']['ospf-neighbor']['ospf-neighbor-state'] eq 'Full'"
+      retries: 3
+      interval: 3
+     with_items:
+     - "{{ ospf_neighbors }}"
+     when: ospf_neighbors is defined
+
+
+#   - name: Check if junos devices learned some routes with OSPF
+#     junos_command:
+#      display: 'xml'
+#      commands:
+#       - show route protocol ospf table inet.0 terse"{{ item.neighbor }}"
+#      waitfor:
+#       - "result[0]['rpc-reply']['route-information']['destination-count'] gt '30'"
+#      retries: 3
+#      interval: 3
+#     with_items:
+#     - "{{ ospf_neighbors }}"
+#     when: ospf_neighbors is defined
