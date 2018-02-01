@@ -1,0 +1,34 @@
+---
+ - name: check if interfaces state is up
+   hosts: junos-ssh
+   connection: local
+   gather_facts: no
+   
+   tasks:
+            
+   - name: check if interfaces admin status is up
+     junos_command:
+      display: 'xml'
+      commands:
+       - "show interfaces terse {{ item.local_interface }}"
+      waitfor:
+       - "result[0]['rpc-reply']['interface-information']['physical-interface']['admin-status'] eq up"
+      retries: 3
+      interval: 3
+     with_items:
+     - "{{ lldp }}"
+     when: lldp is defined
+
+
+   - name: check if interfaces op status is up
+     junos_command:
+      display: 'xml'
+      commands:
+       - "show interfaces terse {{ item.local_interface }}"
+      waitfor:
+       - "result[0]['rpc-reply']['interface-information']['physical-interface']['oper-status'] eq up"
+      retries: 3
+      interval: 3
+     with_items:
+     - "{{ lldp }}"
+     when: lldp is defined
