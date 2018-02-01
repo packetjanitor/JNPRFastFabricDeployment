@@ -1,12 +1,12 @@
 ---
- - name: Check BGP details.
+ - name: Check BGP details in the UNDERLAY.
    hosts: junos-ssh 
    connection: local
    gather_facts: no
    
    tasks:
             
-   - name: Check if all junos devices have established BGP connections to all neigbors
+   - name: Check if all junos devices have established BGP connections to all UNDERLAY neigbors
      junos_command:
       display: 'xml'
       commands:
@@ -19,7 +19,7 @@
      - "{{ peer_address }}"
      when: peer_address is defined
 
-   - name: check if junos devices learnt some routes with BGP
+   - name: Verify devices have learned routes in the UNDERLAY. 
      junos_command:
       display: 'xml'
       commands:

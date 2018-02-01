@@ -1,12 +1,12 @@
 ---
- - name: check bgp details
+ - name: Check BGP details in the OVERLAY.
    hosts: junos-leaf
    connection: local
    gather_facts: no
    
    tasks:
             
-   - name: check if bgp peers state is Established
+   - name: Verify BGP peers are established in the OVERLAY.
      junos_command:
       display: 'xml'
       commands:
@@ -20,13 +20,13 @@
      when: bgp_neighbors is defined
 
 
-   - name: check if junos devices learnt some routes with BGP
+   - name: Verify that the Junos devices learned routes in the OVERLAY network.
      junos_command:
       display: 'xml'
       commands:
-       - show route receive-protocol bgp "{{ item.neighbor }}" table inet.0"
+       - show route receive-protocol bgp "{{ item.neighbor }}" table bgp.evpn.0"
       waitfor:
-       - "result[0]['rpc-reply']['route-information']['route-table']['total-route-count'] gt 2"
+       - "result[0]['rpc-reply']['route-information']['route-table']['total-route-count'] gt 5"
       retries: 3
       interval: 3
      with_items:
