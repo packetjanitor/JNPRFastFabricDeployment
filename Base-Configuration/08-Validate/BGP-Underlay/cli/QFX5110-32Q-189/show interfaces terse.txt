@@ -1,0 +1,58 @@
+
+Interface               Admin Link Proto    Local                 Remote
+et-0/0/0                up    up
+et-0/0/0.0              up    up   inet     100.0.0.42/31   
+gr-0/0/0                up    up
+pfe-0/0/0               up    up
+pfe-0/0/0.16383         up    up   inet    
+                                   inet6   
+pfh-0/0/0               up    up
+pfh-0/0/0.16383         up    up   inet    
+pfh-0/0/0.16384         up    up   inet    
+et-0/0/1                up    up
+et-0/0/1.0              up    up   inet     100.0.0.44/31   
+et-0/0/2                up    up
+et-0/0/2.0              up    up   inet     100.0.0.46/31   
+xe-0/0/3:0              up    up
+xe-0/0/3:0.0            up    up   inet     100.189.1.1/16  
+xe-0/0/3:1              up    up
+xe-0/0/3:1.0            up    up   eth-switch
+xe-0/0/3:2              up    up
+xe-0/0/3:2.0            up    up   eth-switch
+xe-0/0/3:3              up    down
+bme0                    up    up
+bme0.0                  up    up   inet     128.0.0.1/2     
+                                            128.0.0.4/2     
+                                            128.0.0.63/2    
+cbp0                    up    up
+dsc                     up    up
+em0                     up    up
+em0.0                   up    up   inet     172.25.45.189/24
+em1                     up    down
+em2                     up    up
+em2.32768               up    up   inet     192.168.1.2/24  
+em3                     up    up
+esi                     up    up
+gre                     up    up
+ipip                    up    up
+irb                     up    up
+irb.100                 up    up   inet     10.10.10.1/16   
+irb.200                 up    up   inet     10.20.20.1/16   
+lo0                     up    up
+lo0.0                   up    up   inet     100.0.0.189         --> 0/0
+lo0.1                   up    up   inet     10.2.3.89           --> 0/0
+lo0.2                   up    up   inet     10.2.3.189          --> 0/0
+lo0.16385               up    up   inet    
+lsi                     up    up
+mtun                    up    up
+pimd                    up    up
+pime                    up    up
+pip0                    up    up
+tap                     up    up
+vme                     up    down
+vtep                    up    up
+vtep.32768              up    up  
+vtep.32769              up    up   eth-switch
+vtep.32770              up    up   eth-switch
+vtep.32771              up    up   eth-switch
+vtep.32772              up    up   eth-switch
