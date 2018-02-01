@@ -1,3 +1,5 @@
 ---
+- include: pb.check.interfaces.yml
+- include: pb.check.lldp.yml
 - include: pb.check.bgp.underlay.yml
 - include: pb.check.bgp.overlay.yml
