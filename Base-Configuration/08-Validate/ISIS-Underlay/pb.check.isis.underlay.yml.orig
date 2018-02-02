@@ -1,6 +1,6 @@
 ---
  - name: Check isis details.
-   hosts: junos-ssh
+   hosts: QFX5110-32Q-189
    connection: local
    gather_facts: no
    
@@ -12,17 +12,12 @@
       commands:
        - show isis adjacency "{{ item }}"
       wait_for:
-       - "result[0]['rpc-reply']['isis-adjacency-information']['isis-adjacency'][0]['adjacency-state'] eq 'Up'"
+       - "result[0]['rpc-reply']['isis-adjacency-information']['isis-adjacency']['adjacency-state'] eq 'Up'"
       retries: 3
       interval: 3
      with_items:
      - "{{ isis_system_id }}"
      when: isis_system_id is defined
-     register: response
-
- #  - name: "Debug with items. 1st item"
- #    debug:
- #       var: response['results'][0]['output'][0]['rpc-reply']
 
    - name: Check if junos devices have learned the upstream loopback addresses via ISIS
      junos_command:

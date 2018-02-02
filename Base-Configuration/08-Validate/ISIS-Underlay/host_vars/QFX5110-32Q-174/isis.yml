@@ -1,5 +1,5 @@
 --- 
-isis_neighbors:
-   - neighbor: 100.0.0.169
-   - neighbor: 100.0.0.170
-   - neighbor: 100.0.0.171
+isis_system_id:
+   - poc-qfx5110-169
+   - poc-qfx5110-170
+   - poc-qfx5110-171

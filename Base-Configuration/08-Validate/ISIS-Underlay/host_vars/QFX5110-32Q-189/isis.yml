@@ -1,5 +1,5 @@
 --- 
 isis_system_id:
-   - neighbor: poc-qfx5110-169
-   - neighbor: poc-qfx5110-170
-   - neighbor: poc-qfx5110-171
+   - poc-qfx5110-169
+   - poc-qfx5110-170
+   - poc-qfx5110-171
