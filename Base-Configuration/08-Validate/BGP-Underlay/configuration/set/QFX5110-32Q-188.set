@@ -74,13 +74,6 @@ set forwarding-options vxlan-routing interface-num 8192
 set routing-options router-id 100.0.0.188
 set routing-options autonomous-system 65534
 set routing-options forwarding-table export load-balancing-policy
-set protocols bgp group overlay001 type internal
-set protocols bgp group overlay001 local-address 100.0.0.188
-set protocols bgp group overlay001 family evpn signaling
-set protocols bgp group overlay001 neighbor 100.0.0.172
-set protocols bgp group overlay001 neighbor 100.0.0.174
-set protocols bgp group overlay001 neighbor 100.0.0.175
-set protocols bgp group overlay001 neighbor 100.0.0.189
 set protocols bgp group underlay export underlay-networks
 set protocols bgp group underlay local-as 65188
 set protocols bgp group underlay multipath multiple-as
@@ -90,6 +83,13 @@ set protocols bgp group underlay neighbor 100.0.0.35 description to-spine-2
 set protocols bgp group underlay neighbor 100.0.0.35 peer-as 65170
 set protocols bgp group underlay neighbor 100.0.0.37 description to-spine-3
 set protocols bgp group underlay neighbor 100.0.0.37 peer-as 65171
+set protocols bgp group overlay001 type internal
+set protocols bgp group overlay001 local-address 100.0.0.188
+set protocols bgp group overlay001 family evpn signaling
+set protocols bgp group overlay001 neighbor 100.0.0.172
+set protocols bgp group overlay001 neighbor 100.0.0.174
+set protocols bgp group overlay001 neighbor 100.0.0.175
+set protocols bgp group overlay001 neighbor 100.0.0.189
 set protocols evpn encapsulation vxlan
 set protocols evpn default-gateway no-gateway-community
 set protocols evpn extended-vni-list all

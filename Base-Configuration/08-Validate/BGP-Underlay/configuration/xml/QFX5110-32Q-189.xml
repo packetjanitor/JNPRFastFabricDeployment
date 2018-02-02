@@ -1,4 +1,4 @@
-<configuration changed-seconds="1517451295" changed-localtime="2018-01-31 21:14:55 EST">
+<configuration changed-seconds="1517592955" changed-localtime="2018-02-02 12:35:55 EST">
     <version>17.4R1.16</version>
     <groups>
         <name>POC_Lab</name>
@@ -365,29 +365,6 @@
     <protocols>
         <bgp>
             <group>
-                <name>overlay001</name>
-                <type>internal</type>
-                <local-address>100.0.0.189</local-address>
-                <family>
-                    <evpn>
-                        <signaling>
-                        </signaling>
-                    </evpn>
-                </family>
-                <neighbor>
-                    <name>100.0.0.172</name>
-                </neighbor>
-                <neighbor>
-                    <name>100.0.0.174</name>
-                </neighbor>
-                <neighbor>
-                    <name>100.0.0.175</name>
-                </neighbor>
-                <neighbor>
-                    <name>100.0.0.188</name>
-                </neighbor>
-            </group>
-            <group>
                 <name>underlay</name>
                 <export>underlay-networks</export>
                 <local-as>
@@ -410,6 +387,29 @@
                     <name>100.0.0.47</name>
                     <description>to-spine-3</description>
                     <peer-as>65171</peer-as>
+                </neighbor>
+            </group>
+            <group>
+                <name>overlay001</name>
+                <type>internal</type>
+                <local-address>100.0.0.189</local-address>
+                <family>
+                    <evpn>
+                        <signaling>
+                        </signaling>
+                    </evpn>
+                </family>
+                <neighbor>
+                    <name>100.0.0.172</name>
+                </neighbor>
+                <neighbor>
+                    <name>100.0.0.174</name>
+                </neighbor>
+                <neighbor>
+                    <name>100.0.0.175</name>
+                </neighbor>
+                <neighbor>
+                    <name>100.0.0.188</name>
                 </neighbor>
             </group>
         </bgp>

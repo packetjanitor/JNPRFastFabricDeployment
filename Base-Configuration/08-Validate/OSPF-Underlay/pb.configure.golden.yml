@@ -1,0 +1,16 @@
+---
+ 
+ - name: push golden configuration on junos devices
+   hosts: junos-ssh
+   connection: local
+   gather_facts: no    
+   tasks:
+
+
+   - name: push golden configuration on junos devices
+     junos_config:
+      backup: yes
+      comment: golden configuration pushed by Ansible using playbook pb.configure.golden.yml
+      src: "{{playbook_dir}}/golden_configuration/minimum_configuration/{{ inventory_hostname }}.conf"
+      update: override
+      src_format: text

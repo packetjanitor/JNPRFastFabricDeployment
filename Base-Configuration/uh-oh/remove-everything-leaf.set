@@ -1,8 +1,0 @@
-delete vlans
-delete switch-options
-delete routing-instances
-delete policy-options
-delete protocols
-delete routing-options
-delete forwarding-options
-delete interfaces
