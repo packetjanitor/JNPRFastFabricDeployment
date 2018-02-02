@@ -1,0 +1,34 @@
+---
+ - name: Check BGP details in the OVERLAY.
+   hosts: junos-leaf
+   connection: local
+   gather_facts: no
+   
+   tasks:
+            
+   - name: Verify BGP peers are established in the OVERLAY.
+     junos_command:
+      display: 'xml'
+      commands:
+       - show bgp neighbor "{{ item.neighbor }}"
+      waitfor:
+       - "result[0]['rpc-reply']['bgp-information']['bgp-peer']['peer-state'] eq 'Established'"
+      retries: 3
+      interval: 3
+     with_items:
+     - "{{ bgp_neighbors }}"
+     when: bgp_neighbors is defined
+
+
+   - name: Verify that the Junos devices learned routes in the OVERLAY network.
+     junos_command:
+      display: 'xml'
+      commands:
+       - show route receive-protocol bgp "{{ item.neighbor }}" table bgp.evpn.0"
+      waitfor:
+       - "result[0]['rpc-reply']['route-information']['route-table']['total-route-count'] gt 5"
+      retries: 3
+      interval: 3
+     with_items:
+     - "{{ bgp_neighbors }}"
+     when: bgp_neighbors is defined
