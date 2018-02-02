@@ -1,0 +1,22 @@
+---
+loopback: 100.0.0.188
+local_asn: 
+neighbors:
+   - interface: ge-0/0/0
+     name: poc-qfx5110-169
+     asn: 
+     peer_ip: 100.0.0.33 
+     local_ip: 100.0.0.32
+     peer_loopback: 100.0.0.169
+   - interface: ge-0/0/1  
+     name: poc-qfx5110-170
+     asn: 
+     peer_ip: 100.0.0.35
+     local_ip: 100.0.0.34
+     peer_loopback: 100.0.0.170
+   - interface: ge-0/0/1
+     name: poc-qfx5110-171
+     asn: 
+     peer_ip: 100.0.0.37
+     local_ip: 100.0.0.36
+     peer_loopback: 100.0.0.171
