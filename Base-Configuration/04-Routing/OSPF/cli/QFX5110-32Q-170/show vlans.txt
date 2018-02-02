@@ -1,5 +1,0 @@
-
-
-Routing instance        VLAN name             Tag          Interfaces
-default-switch          default               1        
-                                                            
