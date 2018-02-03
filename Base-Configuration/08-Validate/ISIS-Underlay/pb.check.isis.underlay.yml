@@ -20,7 +20,7 @@
  #  - name: "Debug with items. 1st item"
  #    debug:
  #       var: response['results'][0]['output'][0]['rpc-reply']
-   - name: Check if junos devices have learned the upstream loopback addresses via ISIS
+   - name: Check if junos devices have learned all of the directly connected loopback addresses via ISIS
      junos_command:
       display: 'xml'
       commands:
@@ -33,7 +33,7 @@
      - "{{ ospf_neighbors }}"
      when: ospf_neighbors is defined
 
-   - name: Check if junos devices have learned all of the EVPN/VXLAN endpoint addresses via ISIS
+   - name: Check if junos devices have learned all of the loopback addresses via ISIS
      junos_command:
       display: 'xml'
       commands:
