@@ -1,6 +1,6 @@
 --- 
  - name: Verify reachability by pinging directcly connected devices and the loopback address 
-   hosts: QFX5110-32Q-189
+   hosts: junos-ssh
    connection: local
    gather_facts: no
    roles:
