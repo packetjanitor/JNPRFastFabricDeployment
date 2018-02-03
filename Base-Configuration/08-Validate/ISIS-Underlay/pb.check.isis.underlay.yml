@@ -32,35 +32,16 @@
      with_items:
      - "{{ ospf_neighbors }}"
      when: ospf_neighbors is defined
-<<<<<<< HEAD
- - name: Check if Junos Leaf devices have learned all of the EVPN/VXLAN endpoint addresses via ISIS
-   hosts: junos-leaf
-   connection: local
-   gather_facts: no
-   tasks:
-     - junos_command:
-       display: 'xml'
-       commands:
-        - show route protocol isis table inet.0 terse "{{ item.neighbor }}"
-       wait_for:
-        - "result[0]['rpc-reply']['route-information']['route-table']['rt']['rt-entry']['protocol-name'] eq IS-IS"
-       retries: 3
-       interval: 3
-       with_items:
-        - "{{ bgp_neighbors }}"
-       when: bgp_neighbors is defined
-=======
 
    - name: Check if junos devices have learned all of the EVPN/VXLAN endpoint addresses via ISIS
      junos_command:
       display: 'xml'
       commands:
-       - show route protocol isis table inet.0 terse "{{ neighbors.peer_loopback }}"
+       - show route protocol isis table inet.0 terse "{{ item.peer_loopback }}"
       wait_for:
        - "result[0]['rpc-reply']['route-information']['route-table']['rt']['rt-entry']['protocol-name'] eq IS-IS"
       retries: 3
       interval: 3
      with_items:
-     - "{{ neighbors.peer_loopback }}"
-     when: neighbors.peer_loopback is defined
->>>>>>> fa905f9d9d66d60ec7deef8ea25d8bf699fa4f01
+     - "{{ neighbors }}"
+     when: item.peer_loopback is defined
