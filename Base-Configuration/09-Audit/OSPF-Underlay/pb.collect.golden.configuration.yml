@@ -10,7 +10,7 @@
        state: directory
      with_items: 
       - golden_configuration
-      - golden_configuration/minimum_configuration
+      - golden_configuration/ospf
 
  - name: set and collect junos golden configuration
    hosts: junos-ssh
@@ -27,4 +27,4 @@
     - name: copy collected configuration in golden directory
       copy:
         content: "{{ result_text.ansible_facts.ansible_net_config }}"
-        dest: "{{ playbook_dir }}/golden_configuration/minimum_configuration/{{ inventory_hostname }}.conf"
+        dest: "{{ playbook_dir }}/golden_configuration/ospf/{{ inventory_hostname }}.conf"

@@ -10,10 +10,7 @@
        state: directory
      with_items: 
       - golden_configuration
-      - golden_configuration/minimum_configuration
       - golden_configuration/bgp
-      - golden_configuration/isis
-      - golden_configuration/ospf
  
  - name: set and collect junos golden configuration
    hosts: junos-ssh
