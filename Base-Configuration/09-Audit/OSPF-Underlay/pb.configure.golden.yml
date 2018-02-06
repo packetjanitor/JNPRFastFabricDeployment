@@ -11,6 +11,6 @@
      junos_config:
       backup: yes
       comment: golden configuration pushed by Ansible using playbook pb.configure.golden.yml
-      src: "{{playbook_dir}}/golden_configuration/minimum_configuration/{{ inventory_hostname }}.conf"
+      src: "{{playbook_dir}}/golden_configuration/ospf/{{ inventory_hostname }}.conf"
       update: override
       src_format: text

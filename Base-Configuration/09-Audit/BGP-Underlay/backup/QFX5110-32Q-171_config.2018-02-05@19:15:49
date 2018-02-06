@@ -1,0 +1,84 @@
+set version 17.4R1.16
+set groups POC_Lab system host-name poc-qfx5110-171
+set groups POC_Lab system domain-name amerpoc.jnpr.net
+set groups POC_Lab system backup-router 172.25.45.1
+set groups POC_Lab system time-zone America/New_York
+set groups POC_Lab system authentication-order password
+set groups POC_Lab system authentication-order radius
+set groups POC_Lab system root-authentication encrypted-password "$1$f1VUEVN3$P9LmFmM90qmJSEsdPZJtA0"
+set groups POC_Lab system name-server 172.25.124.10
+set groups POC_Lab system name-server 172.29.131.60
+set groups POC_Lab system radius-server 172.25.46.3 secret "$9$6Ia3CpOhSeX7V1R7VwYZG69Ap1RcylMLx"
+set groups POC_Lab system radius-server 172.25.46.3 timeout 1
+set groups POC_Lab system radius-server 172.25.46.3 retry 1
+set groups POC_Lab system login message "\n \n System is in use for a customer POC testing \n \n *** Please do not make changes before contacting the Herndon POC admins *** \n\n"
+set groups POC_Lab system login user lab uid 2003
+set groups POC_Lab system login user lab class superuser
+set groups POC_Lab system login user lab authentication encrypted-password "$1$gz.0IbEX$wXEZsNN169oWGVRSzsWEt1"
+set groups POC_Lab system login user admin uid 2004
+set groups POC_Lab system login user admin class superuser
+set groups POC_Lab system login user admin authentication encrypted-password "$1$iF6/a6kj$qt3NdAF7s0L.AFYw.vdIO."
+set groups POC_Lab system login user remote full-name "all remote users"
+set groups POC_Lab system login user remote uid 2000
+set groups POC_Lab system login user remote class super-user
+set groups POC_Lab system services ftp
+set groups POC_Lab system services ssh root-login allow
+set groups POC_Lab system services ssh protocol-version v2
+set groups POC_Lab system services telnet
+set groups POC_Lab system services xnm-clear-text
+set groups POC_Lab system services netconf ssh
+set groups POC_Lab system syslog host 172.25.45.6 authorization any
+set groups POC_Lab system ntp server 172.25.124.17 prefer
+set groups POC_Lab system ntp server 66.129.255.62 prefer
+set groups POC_Lab chassis fpc 0 pic 0 port 5 channel-speed 10g
+set groups POC_Lab interfaces em0 unit 0 family inet address 172.25.45.171/24
+set groups POC_Lab snmp community public
+set groups POC_Lab routing-options static route 0.0.0.0/0 next-hop 172.25.45.1
+set groups POC_Lab protocols lldp interface all
+set apply-groups POC_Lab
+set system login user jnpradmin uid 2005
+set system login user jnpradmin class super-user
+set system login user jnpradmin authentication ssh-rsa "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCquUbCqe2B5XbWRhzzyavno5R54AUMU41JR0zf1+Zveh1J6jc1qp6qTjttSBn1VOhJzVxZx+GnbIFcad3WV42H1WT1i5/cpRZyZYSWM7VPPrGcHO9fftXD6qED7fr82Q3p+e2cypc/6xxuH3fSSS0L59rdd4hSKivvhEz4sIXf/3ncaWVN5csdpTYiHyhNvv9Vd7a1Cr/ocFaGC/RyhJnG25+nrb9tfxleBC5pysqIPApAmKvFNrmbpZvwD0M7Vf8XBbXk7/eQ9gfxAlYzmw3ccR7OtfJ00gq6gxfnJGu90h4PeAdtk6NA9okRzx7iLdz/UHPyxjbdFo/hQsuSkY8n jnpradmin@AutoMach"
+set system login user junivator uid 2006
+set system login user junivator class super-user
+set system login user junivator authentication ssh-rsa "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+Z33/jBtEytTjGdXZXpLk95+9WneKL3HvNXAae7E3xylPZ0Q6pcPUgngDtnGF4SVXnI1YImQZNj4cVvUYMMw3QQ8hC0DAWF9n1Ov6tPN3QawkMaz4dhaVrz2qV4nQ0pytOecZmNgLy/YaYcxKHMI6jd3eKTAPt6M/qj+HlTfBdkkXmIQ09V35TtfNiVP+dgTYN3+1SudWjX/48I+QN1oaff9F6kKER8974/5JVAZUxWp+2dGH7ULX99gQACEJoysl0XHWsAQcakgnzoSOK/HQamArbuPtmV8yX7fhJsw5HwUHB2wvRvJ9Y77jVDI4H/vYEtWXEsRwwfz4t5kNYfQR junivator@automation"
+set system login user junivator authentication ssh-rsa "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDL/Hi+hk25C5iXlUTI+mjHiRuCchwQEs01Ctn77y92KNStN+d0Q/d1dhavjwxE1ucfbKdmTTLUy7KV6EPoAyvgojHwX1m+/YGiApvslwrqmZow2Nju+MLYUYfrY5f1vZFLkT6XVL4Zl58OZExfQEwCf+BmUYls1JrjwUHtrN7b90Fxi02LFw7HWpPq5HMVL7CiLWUfIY/JDJbWMlq//9A7uaSAS7kw5Ou6MFQjB7sQ35PiwCu/QXNVMyA6VckTS22OsUa6I1iXywYqhLTWLoWJ7d1kYsAS/xsTKodkMHgqsFP0MsL6GKx0QH6/Tnsm8XYZ9hrQmn0zCnZNrfjxyhFF junivator@Automation"
+set system login user rescueme uid 2002
+set system login user rescueme class super-user
+set system login user rescueme authentication encrypted-password "$6$.d6QpMEs$8iz8XnMckkHL5I7vdq.7fwzOAbWJ2ve8Iqrh2d62XpFktUO248Pa2H0LPjYxXECszvXhhM3qWpLmMND6px9Pi."
+set system syslog user * any emergency
+set system syslog file messages any notice
+set system syslog file messages authorization info
+set system syslog file interactive-commands interactive-commands any
+set interfaces et-0/0/0 unit 0 description to-leaf-1
+set interfaces et-0/0/0 unit 0 family inet address 100.0.0.7/31
+set interfaces et-0/0/1 unit 0 description to-leaf-2
+set interfaces et-0/0/1 unit 0 family inet address 100.0.0.17/31
+set interfaces et-0/0/2 unit 0 description to-leaf-3
+set interfaces et-0/0/2 unit 0 family inet address 100.0.0.27/31
+set interfaces et-0/0/3 unit 0 description to-leaf-4
+set interfaces et-0/0/3 unit 0 family inet address 100.0.0.37/31
+set interfaces et-0/0/4 unit 0 description to-leaf-5
+set interfaces et-0/0/4 unit 0 family inet address 100.0.0.47/31
+set interfaces xe-0/0/5:0 unit 0 description to-test-equipment
+set interfaces xe-0/0/5:0 unit 0 family inet address 100.171.1.1/16
+set interfaces lo0 unit 0 family inet address 100.0.0.171/32 primary
+set routing-options router-id 100.0.0.171
+set routing-options autonomous-system 65534
+set routing-options forwarding-table export load-balancing-policy
+set protocols bgp group underlay export underlay-networks
+set protocols bgp group underlay local-as 65171
+set protocols bgp group underlay multipath multiple-as
+set protocols bgp group underlay neighbor 100.0.0.6 description to-leaf-1
+set protocols bgp group underlay neighbor 100.0.0.6 peer-as 65172
+set protocols bgp group underlay neighbor 100.0.0.16 description to-leaf-2
+set protocols bgp group underlay neighbor 100.0.0.16 peer-as 65174
+set protocols bgp group underlay neighbor 100.0.0.26 description to-leaf-3
+set protocols bgp group underlay neighbor 100.0.0.26 peer-as 65175
+set protocols bgp group underlay neighbor 100.0.0.36 description to-leaf-4
+set protocols bgp group underlay neighbor 100.0.0.36 peer-as 65188
+set protocols bgp group underlay neighbor 100.0.0.46 description to-leaf-5
+set protocols bgp group underlay neighbor 100.0.0.46 peer-as 65189
+set policy-options policy-statement load-balancing-policy then load-balance per-packet
+set policy-options policy-statement underlay-networks term 1 from protocol direct
+set policy-options policy-statement underlay-networks term 1 then accept

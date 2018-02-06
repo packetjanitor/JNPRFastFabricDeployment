@@ -1,5 +1,5 @@
 set version 17.4R1.16
-set groups POC_Lab system host-name poc-qfx5110-175
+set groups POC_Lab system host-name poc-qfx5110-174
 set groups POC_Lab system domain-name amerpoc.jnpr.net
 set groups POC_Lab system backup-router 172.25.45.1
 set groups POC_Lab system time-zone America/New_York
@@ -12,14 +12,14 @@ set groups POC_Lab system radius-server 172.25.46.3 secret "$9$6Ia3CpOhSeX7V1R7V
 set groups POC_Lab system radius-server 172.25.46.3 timeout 1
 set groups POC_Lab system radius-server 172.25.46.3 retry 1
 set groups POC_Lab system login message "\n \n System is in use for a customer POC testing \n \n *** Please do not make changes before contacting the Herndon POC admins *** \n\n"
-set groups POC_Lab system login user lab uid 2000
+set groups POC_Lab system login user lab uid 2001
 set groups POC_Lab system login user lab class superuser
 set groups POC_Lab system login user lab authentication encrypted-password "$1$gz.0IbEX$wXEZsNN169oWGVRSzsWEt1"
-set groups POC_Lab system login user admin uid 2003
+set groups POC_Lab system login user admin uid 2004
 set groups POC_Lab system login user admin class superuser
 set groups POC_Lab system login user admin authentication encrypted-password "$1$iF6/a6kj$qt3NdAF7s0L.AFYw.vdIO."
 set groups POC_Lab system login user remote full-name "all remote users"
-set groups POC_Lab system login user remote uid 2004
+set groups POC_Lab system login user remote uid 2000
 set groups POC_Lab system login user remote class super-user
 set groups POC_Lab system services ftp
 set groups POC_Lab system services ssh root-login allow
@@ -31,8 +31,10 @@ set groups POC_Lab system syslog host 172.25.45.6 authorization any
 set groups POC_Lab system ntp server 172.25.124.17 prefer
 set groups POC_Lab system ntp server 66.129.255.62 prefer
 set groups POC_Lab chassis fpc 0 pic 0 port 3 channel-speed 10g
-set groups POC_Lab interfaces em0 unit 0 family inet address 172.25.45.175/24
+set groups POC_Lab interfaces em0 unit 0 family inet address 172.25.45.174/24
 set groups POC_Lab snmp community public
+set groups POC_Lab forwarding-options vxlan-routing next-hop 16384
+set groups POC_Lab forwarding-options vxlan-routing interface-num 8192
 set groups POC_Lab routing-options static route 0.0.0.0/0 next-hop 172.25.45.1
 set groups POC_Lab protocols lldp interface all
 set apply-groups POC_Lab
@@ -51,17 +53,13 @@ set system syslog file messages any notice
 set system syslog file messages authorization info
 set system syslog file interactive-commands interactive-commands any
 set interfaces et-0/0/0 unit 0 description to-spine-1
-set interfaces et-0/0/0 unit 0 family inet address 100.0.0.22/31
-set interfaces et-0/0/0 unit 0 family iso
+set interfaces et-0/0/0 unit 0 family inet address 100.0.0.12/31
 set interfaces et-0/0/1 unit 0 description to-spine-2
-set interfaces et-0/0/1 unit 0 family inet address 100.0.0.24/31
-set interfaces et-0/0/1 unit 0 family iso
+set interfaces et-0/0/1 unit 0 family inet address 100.0.0.14/31
 set interfaces et-0/0/2 unit 0 description to-spine-3
-set interfaces et-0/0/2 unit 0 family inet address 100.0.0.26/31
-set interfaces et-0/0/2 unit 0 family iso
+set interfaces et-0/0/2 unit 0 family inet address 100.0.0.16/31
 set interfaces xe-0/0/3:0 unit 0 description to-test-equipment
-set interfaces xe-0/0/3:0 unit 0 family inet address 100.175.1.1/16
-set interfaces xe-0/0/3:0 unit 0 family iso
+set interfaces xe-0/0/3:0 unit 0 family inet address 100.174.1.1/16
 set interfaces xe-0/0/3:1 unit 0 description to-test-equipment
 set interfaces xe-0/0/3:1 unit 0 family ethernet-switching interface-mode trunk
 set interfaces xe-0/0/3:1 unit 0 family ethernet-switching vlan members v100
@@ -70,37 +68,28 @@ set interfaces xe-0/0/3:2 unit 0 family ethernet-switching interface-mode trunk
 set interfaces xe-0/0/3:2 unit 0 family ethernet-switching vlan members v200
 set interfaces irb unit 100 family inet address 10.10.10.1/16 virtual-gateway-address 10.10.10.254
 set interfaces irb unit 200 family inet address 10.20.20.1/16 virtual-gateway-address 10.20.20.254
-set interfaces lo0 unit 0 family inet address 100.0.0.175/32 primary
-set interfaces lo0 unit 0 family iso address 49.0001.0001.0001.0175.00
-set interfaces lo0 unit 1 family inet address 10.2.3.75/32 primary
-set interfaces lo0 unit 2 family inet address 10.2.3.175/32 primary
-set forwarding-options vxlan-routing next-hop 16384
-set forwarding-options vxlan-routing interface-num 8192
-set routing-options router-id 100.0.0.175
+set interfaces lo0 unit 0 family inet address 100.0.0.174/32 primary
+set interfaces lo0 unit 1 family inet address 10.2.3.74/32 primary
+set interfaces lo0 unit 2 family inet address 10.2.3.174/32 primary
+set routing-options router-id 100.0.0.174
 set routing-options autonomous-system 65534
 set routing-options forwarding-table export load-balancing-policy
-set protocols bgp group underlay export underlay-networks
-set protocols bgp group underlay local-as 65175
-set protocols bgp group underlay multipath multiple-as
-set protocols bgp group underlay neighbor 100.0.0.23 description to-spine-1
-set protocols bgp group underlay neighbor 100.0.0.23 peer-as 65169
-set protocols bgp group underlay neighbor 100.0.0.25 description to-spine-2
-set protocols bgp group underlay neighbor 100.0.0.25 peer-as 65170
-set protocols bgp group underlay neighbor 100.0.0.27 description to-spine-3
-set protocols bgp group underlay neighbor 100.0.0.27 peer-as 65171
 set protocols bgp group overlay001 type internal
-set protocols bgp group overlay001 local-address 100.0.0.175
+set protocols bgp group overlay001 local-address 100.0.0.174
 set protocols bgp group overlay001 family evpn signaling
 set protocols bgp group overlay001 neighbor 100.0.0.172
-set protocols bgp group overlay001 neighbor 100.0.0.174
+set protocols bgp group overlay001 neighbor 100.0.0.175
 set protocols bgp group overlay001 neighbor 100.0.0.188
 set protocols bgp group overlay001 neighbor 100.0.0.189
-set protocols isis reference-bandwidth 1000g
-set protocols isis interface et-0/0/0.0
-set protocols isis interface et-0/0/1.0
-set protocols isis interface et-0/0/2.0
-set protocols isis interface xe-0/0/3:0.0 passive
-set protocols isis interface lo0.0 passive
+set protocols bgp group underlay export underlay-networks
+set protocols bgp group underlay local-as 65174
+set protocols bgp group underlay multipath multiple-as
+set protocols bgp group underlay neighbor 100.0.0.13 description to-spine-1
+set protocols bgp group underlay neighbor 100.0.0.13 peer-as 65169
+set protocols bgp group underlay neighbor 100.0.0.15 description to-spine-2
+set protocols bgp group underlay neighbor 100.0.0.15 peer-as 65170
+set protocols bgp group underlay neighbor 100.0.0.17 description to-spine-3
+set protocols bgp group underlay neighbor 100.0.0.17 peer-as 65171
 set protocols evpn encapsulation vxlan
 set protocols evpn default-gateway no-gateway-community
 set protocols evpn extended-vni-list all
@@ -133,7 +122,7 @@ set routing-instances vrf_vlan200 vrf-import import-inet
 set routing-instances vrf_vlan200 vrf-export export-inet2
 set routing-instances vrf_vlan200 routing-options auto-export family inet unicast
 set switch-options vtep-source-interface lo0.0
-set switch-options route-distinguisher 100.0.0.175:1
+set switch-options route-distinguisher 100.0.0.174:1
 set switch-options vrf-target target:1111:11
 set vlans v100 vlan-id 100
 set vlans v100 l3-interface irb.100
