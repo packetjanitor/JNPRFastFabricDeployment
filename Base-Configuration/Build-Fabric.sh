@@ -12,7 +12,7 @@ printf "OSPF Routing Protocol installed.\r"
 sleep 3
 ansible-playbook -i 05-Overlay-Config/Leaf-Only/all.inv 05-Overlay-Config/Leaf-Only/deploy-overlay.yml
 printf  "Overlay deployed.\r"
-secs=$((3 * 60))
+secs=$((1 * 60))
 while [ $secs -gt 0 ]; do
    echo -ne "Countdown to Fabric Availability: "
    echo -ne "$secs\033[0K\r"

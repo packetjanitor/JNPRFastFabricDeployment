@@ -1,6 +1,4 @@
 delete protocols bgp group overlay001
-delete forwarding-options vxlan-routing interface-num 8192
-delete forwarding-options vxlan-routing next-hop 16384
 delete protocols evpn encapsulation vxlan
 delete protocols evpn extended-vni-list all
 delete protocols evpn default-gateway no-gateway-community

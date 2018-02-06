@@ -18,7 +18,7 @@ printf "Overlay deployed.\n"
 sleep 3
 printf "Letting the hardware form adjacencies and stabilize.\n"
 sleep 3
-secs=$((3 * 60))
+secs=$((1 * 60))
 while [ $secs -gt 0 ]; do
    echo -ne "Countdown to Fabric Availability: "
    echo -ne "$secs\033[0K\r"

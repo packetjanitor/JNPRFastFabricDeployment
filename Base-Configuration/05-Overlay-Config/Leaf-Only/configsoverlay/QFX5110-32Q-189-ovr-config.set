@@ -2,8 +2,6 @@ set protocols bgp group overlay001 neighbor 100.0.0.172
 set protocols bgp group overlay001 neighbor 100.0.0.174
 set protocols bgp group overlay001 neighbor 100.0.0.175
 set protocols bgp group overlay001 neighbor 100.0.0.188
-set forwarding-options vxlan-routing interface-num 8192
-set forwarding-options vxlan-routing next-hop 16384
 set protocols bgp group overlay001 type internal 
 set protocols bgp group overlay001 local-address 100.0.0.189 
 set protocols bgp group overlay001 family evpn signaling 
