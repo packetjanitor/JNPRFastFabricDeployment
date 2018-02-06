@@ -4,6 +4,10 @@ Figure 1 with 3 spines and 5 leafs.
 
 Here is video around the use of the automation and how I build it. https://youtu.be/yuXpycsW48Q
 
+These scaling numbers are good enough for my testing. So, I put these two commands in the base configuration because they reboot the PFE when the commit occurs as they are ASIC level programming commands.
+~set forwarding-options vxlan-routing interface-num 8192~
+~set forwarding-options vxlan-routing next-hop 16384~
+
 I built the other topologies but they are in other sections that I will add as I get more time. 
 
 I used the commands right on the bottom of that webpage with the exception of the multi-home/LACP commands. I was super focused on load-balancing and failover for this part.
