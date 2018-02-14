@@ -1,5 +1,0 @@
---- 
-ospf_neighbors:
-   - neighbor: 100.0.0.169
-   - neighbor: 100.0.0.170
-   - neighbor: 100.0.0.171

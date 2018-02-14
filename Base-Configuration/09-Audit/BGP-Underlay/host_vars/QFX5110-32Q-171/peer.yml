@@ -1,7 +1,0 @@
---- 
-peer_address:
-   - neighbor: 100.0.0.6
-   - neighbor: 100.0.0.16
-   - neighbor: 100.0.0.26
-   - neighbor: 100.0.0.36
-   - neighbor: 100.0.0.46

@@ -1,8 +1,0 @@
----
-lldp:
-   - local_interface: et-0/0/0
-     lldp_neighbor: poc-qfx5110-169
-   - local_interface: et-0/0/1
-     lldp_neighbor: poc-qfx5110-170
-   - local_interface: et-0/0/2
-     lldp_neighbor: poc-qfx5110-171
