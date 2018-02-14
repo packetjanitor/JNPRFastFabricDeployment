@@ -1,9 +1,0 @@
-delete interfaces lo0 unit 0
-delete interfaces et-0/0/0 unit 0
-delete interfaces et-0/0/1 unit 0 
-delete interfaces et-0/0/2 unit 0 
-delete interfaces et-0/0/3 unit 0 
-delete interfaces et-0/0/4 unit 0 
-delete interfaces xe-0/0/5:0 unit 0 
-delete routing-options router-id
-delete routing-options autonomous-system

@@ -1,4 +1,0 @@
-delete interfaces et-0/0/0 unit 0 family iso
-delete interfaces et-0/0/1 unit 0 family iso
-delete interfaces xe-0/0/3:0 unit 0 family iso
-delete interfaces lo0 unit 0 family iso

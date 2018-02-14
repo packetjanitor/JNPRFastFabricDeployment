@@ -1,4 +1,0 @@
-set interfaces et-0/0/0 unit 0 family iso
-set interfaces et-0/0/1 unit 0 family iso
-set interfaces xe-0/0/3:0 unit 0 family iso
-set interfaces lo0 unit 0 family iso address 49.0001.0001.0001.0188.00

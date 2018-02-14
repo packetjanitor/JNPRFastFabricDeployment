@@ -1,6 +1,0 @@
-set policy-options policy-statement load-balancing-policy then load-balance per-packet
-set routing-options forwarding-table export load-balancing-policy
-set policy-options policy-statement underlay-networks term 1 from protocol direct 
-set policy-options policy-statement underlay-networks term 1 then accept
-set protocols bgp group underlay export underlay-networks
-set protocols bgp group underlay multipath multiple-as

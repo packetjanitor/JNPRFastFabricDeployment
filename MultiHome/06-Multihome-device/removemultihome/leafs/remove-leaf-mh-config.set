@@ -1,3 +1,0 @@
-delete chassis aggregated-devices ethernet device-count 1
-delete interfaces et-0/0/2
-delete interfaces ae0

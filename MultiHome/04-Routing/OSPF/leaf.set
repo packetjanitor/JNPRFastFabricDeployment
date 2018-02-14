@@ -1,7 +1,0 @@
-set policy-options policy-statement load-balancing-policy then load-balance per-packet
-set routing-options forwarding-table export load-balancing-policy
-set protocols ospf reference-bandwidth 1000000000000
-set protocols ospf area 0.0.0.0 interface et-0/0/0.0
-set protocols ospf area 0.0.0.0 interface et-0/0/1.0
-set protocols ospf area 0.0.0.0 interface xe-0/0/3:0.0 passive
-set protocols ospf area 0.0.0.0 interface lo0 passive

@@ -1,4 +1,0 @@
-20181230 by Mitch
-This directory is used to set up the multihomed devices in our topology.
-
-We are reusing a spine device and so we turn off the extra links to avoid any conflict.
