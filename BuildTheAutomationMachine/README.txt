@@ -33,7 +33,8 @@ Enter the following
 
 ~sudo apt-get update~
 
-~sudo apt-get install ansible=2.4.2.0-1ppa~xenial -y~
+~sudo apt install ansible -y~  
+Ansible has recently updated so I updated this to move off of 2.4.2.0 to the most current to reflect the current version of Ansible.
 
 Now we need to install our ansible module.
 Good news Ansible’s updates servers are on the most current module. Bad news, all of the automation I wrote is on the old version. I am working to upgrade to the new ansible verbiage and model.
