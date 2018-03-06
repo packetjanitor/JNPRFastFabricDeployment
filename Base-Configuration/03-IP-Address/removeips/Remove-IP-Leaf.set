@@ -5,3 +5,4 @@ delete interfaces et-0/0/2 unit 0
 delete interfaces xe-0/0/3:0 unit 0 
 delete routing-options router-id 
 delete routing-options autonomous-system
+delete protocols lldp
