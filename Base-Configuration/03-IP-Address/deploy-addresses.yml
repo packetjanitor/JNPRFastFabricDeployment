@@ -11,7 +11,7 @@
   roles:
     - Juniper.junos
   tasks:
-    - name: push ip addresses to devices
+    - name: Push ip addresses and LLDP to devices
       junos_install_config:
         host: "{{ inventory_hostname }}"
         replace: no

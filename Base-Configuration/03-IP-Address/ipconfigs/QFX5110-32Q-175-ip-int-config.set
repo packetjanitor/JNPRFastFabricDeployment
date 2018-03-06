@@ -5,3 +5,6 @@ set interfaces et-0/0/1 unit 0 description to-spine-2 family inet address 100.0.
 set interfaces et-0/0/2 unit 0 description to-spine-3 family inet address 100.0.0.26/31
 set interfaces xe-0/0/3:0 unit 0 description to-test-equipment family inet address 100.175.1.1/16
 set interfaces lo0 unit 0 family inet address 100.0.0.175/32 primary
+set protocols lldp interface et-0/0/0
+set protocols lldp interface et-0/0/1
+set protocols lldp interface et-0/0/2
