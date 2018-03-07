@@ -1,0 +1,3 @@
+set groups POC_Lab interfaces et-0/0/0 disable
+set groups POC_Lab interfaces et-0/0/1 disable
+set groups POC_Lab interfaces et-0/0/2 disable

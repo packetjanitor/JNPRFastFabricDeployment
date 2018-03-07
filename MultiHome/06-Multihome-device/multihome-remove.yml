@@ -1,0 +1,42 @@
+# Copyright 2017, Juniper Networks Pvt Ltd.
+# All rights reserved.
+# Deploys IP Addresses to the topology
+# command example: ansible-playbook -i all.inv multihome-remove.yml
+# Successfully ran on ansible version: ansible 2.4.2.0
+---
+- name: Removes multihome from the attached leaf devices
+  hosts: junos-mh-leaf-attach
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+  tasks:
+    - name: remove multihome config from attached leaf devices
+      junos_install_config:
+        host: "{{ inventory_hostname }}"
+        replace: no
+        overwrite: no
+        confirm: 5
+        file: "removemultihome/leafs/remove-leaf-mh-config.set"
+    - name: Confirm the commit
+      junos_commit:
+        host: "{{ inventory_hostname }}"
+        comment: "commit confirmed"
+- name: Removes multihome from the attached multihomed device
+  hosts: junos-mh-device
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+  tasks:
+    - name: remove multihome config to attached device
+      junos_install_config:
+        host: "{{ inventory_hostname }}"
+        replace: no
+        overwrite: no
+        confirm: 5
+        file: "removemultihome/devices/remove-device-mh-config.set"
+    - name: Confirm the commit
+      junos_commit:
+        host: "{{ inventory_hostname }}"
+        comment: "commit confirmed"

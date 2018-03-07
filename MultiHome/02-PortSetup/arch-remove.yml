@@ -1,0 +1,24 @@
+# Copyright 2017, Juniper Networks Pvt Ltd.
+# All rights reserved.
+# Removes Multihome setup from devices
+# command example: ansible-playbook -i all.inv arch-remove.yml
+# Successfully ran on ansible 2.4.2.0, Juniper.junos, 1.4.3
+---
+- name: Enables links to return to base topology.
+  hosts: junos-mh-device
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+  tasks:
+    - name: Pushing config to Multi-homed Device
+      junos_install_config:
+        host: "{{ inventory_hostname }}"
+        replace: no
+        overwrite: no
+        confirm: 5
+        file: remove-setup.set
+    - name: Confirm the commit
+      junos_commit:
+        host: "{{ inventory_hostname }}"
+        comment: "commit confirmed"

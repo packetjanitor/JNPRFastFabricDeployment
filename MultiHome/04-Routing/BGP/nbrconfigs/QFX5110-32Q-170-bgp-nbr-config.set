@@ -1,0 +1,6 @@
+set protocols bgp group underlay local-as 65170
+set protocols bgp group underlay neighbor 100.0.0.4 peer-as 65172 description to-leaf-1
+set protocols bgp group underlay neighbor 100.0.0.14 peer-as 65174 description to-leaf-2
+set protocols bgp group underlay neighbor 100.0.0.24 peer-as 65175 description to-leaf-3
+set protocols bgp group underlay neighbor 100.0.0.34 peer-as 65188 description to-leaf-4
+set protocols bgp group underlay neighbor 100.0.0.44 peer-as 65189 description to-leaf-5

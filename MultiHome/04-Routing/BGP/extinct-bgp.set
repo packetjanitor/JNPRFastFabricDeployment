@@ -1,0 +1,4 @@
+delete policy-options policy-statement load-balancing-policy then load-balance per-packet
+delete policy-options policy-statement underlay-networks
+delete routing-options forwarding-table export load-balancing-policy
+delete protocols bgp group underlay

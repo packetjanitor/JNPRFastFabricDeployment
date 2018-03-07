@@ -1,0 +1,9 @@
+set routing-options router-id 100.0.0.169
+set routing-options autonomous-system 65534
+set interfaces et-0/0/0 unit 0 description to-leaf-1 family inet address 100.0.0.3/31
+set interfaces et-0/0/1 unit 0 description to-leaf-2 family inet address 100.0.0.13/31
+set interfaces et-0/0/2 unit 0 description to-leaf-3 family inet address 100.0.0.23/31
+set interfaces et-0/0/3 unit 0 description to-leaf-4 family inet address 100.0.0.33/31
+set interfaces et-0/0/4 unit 0 description to-leaf-5 family inet address 100.0.0.43/31
+set interfaces xe-0/0/5:0 unit 0 description to-test-equipment family inet address 100.169.1.1/16
+set interfaces lo0 unit 0 family inet address 100.0.0.169/32 primary
